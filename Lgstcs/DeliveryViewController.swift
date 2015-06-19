@@ -121,6 +121,13 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         self.view.addSubview(imageView)
         self.view.addSubview(lblDirections)
+        
+        var center: CLLocationCoordinate2D = delivery!.placemark.coordinate
+        var radius: CLLocationDistance = CLLocationDistance(300)
+        var identifier: String = "Destination"
+        let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
+        manager?.startMonitoringForRegion(region)
+        
     
     }
     
@@ -240,6 +247,12 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         UIView.animateWithDuration(0.25, animations: { self.arrivedButton.frame  = CGRectMake((self.view.bounds.size.width - (width * 4.75)) / 2.0, buttonheight*8, width * 4.75,50)})
         
         self.view.addSubview(arrivedButton)
+        
+        var center: CLLocationCoordinate2D = delivery!.placemark.coordinate
+        var radius: CLLocationDistance = CLLocationDistance(300)
+        var identifier: String = "Destination"
+        let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
+        manager.stopMonitoringForRegion(region)
 
         
     }
@@ -266,13 +279,8 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         override func viewDidAppear(animated: Bool) {
             
-        
-            var center: CLLocationCoordinate2D = delivery!.placemark.coordinate
-            var radius: CLLocationDistance = CLLocationDistance(300)
-            var identifier: String = "Destination"
-            let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
-            manager?.startMonitoringForRegion(region)
 
+            
         }
         
         override func didReceiveMemoryWarning() {

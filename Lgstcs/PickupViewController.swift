@@ -49,6 +49,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         manager!.startUpdatingLocation()
         self.map?.showsUserLocation = true
         
+        
     }
 
     func configureToolbar() {
@@ -290,6 +291,12 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             UIView.animateWithDuration(0.25, animations: { self.arrivedButton.frame  = CGRectMake((self.view.bounds.size.width - (width * 4.75)) / 2.0, buttonheight*8, width * 4.75,50)})
         
             self.view.addSubview(arrivedButton)
+        
+            var center: CLLocationCoordinate2D = destination!.placemark.coordinate
+            var radius: CLLocationDistance = CLLocationDistance(300)
+            var identifier: String = "Destination"
+            let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
+            manager.stopMonitoringForRegion(region)
             
     }
     
@@ -316,7 +323,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             var radius: CLLocationDistance = CLLocationDistance(300)
             var identifier: String = "Destination"
             let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
-            manager?.startMonitoringForRegion(region)
+            manager!.startMonitoringForRegion(region)
             
         }
         
