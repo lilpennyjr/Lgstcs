@@ -15,19 +15,38 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var map: MKMapView?
     var manager: CLLocationManager?
     var destination: MKMapItem?
-    var course: CLLocationDirection?
-    var camera: MKMapCamera?
-    var pickupAddressFull: String?
-    var label: TopAlignedLabel?
-    var callPhoneNumber = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    var phoneNumber = ""
-    var contactName = ""
-    let arrivedButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    var blat = ""
-    var blng = ""
-    var deliveryAddressFull = ""
     let toolbar = UIToolbar()
     let annotation = MKPointAnnotation()
+    var course: CLLocationDirection?
+    var camera: MKMapCamera?
+    var label: TopAlignedLabel?
+    var callPhoneNumber = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    let arrivedButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    var shipperAddressFull = ""
+    var shipperLat = ""
+    var shipperLng = ""
+    
+    var shipperName = ""
+    var shipperCompany = ""
+    var shipperAddress = ""
+    var shipperCity = ""
+    var shipperState = ""
+    var shipperPhone = ""
+    var shipperEmail = ""
+    
+    var deliveryName = ""
+    var deliveryAddress = ""
+    var deliveryCity = ""
+    var deliveryState = ""
+    var deliveryPhone = ""
+    
+    var weight = ""
+    var units = ""
+    var mileage = ""
+    
+    var deliveryAddressFull = ""
+    var deliveryLat = ""
+    var deliveryLng = ""
     
     
     
@@ -196,7 +215,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     func calling(sender: UIButton) {
         
-        let phone = phoneNumber
+        let phone = shipperPhone
         let url:NSURL = NSURL(string:phone)!;
         UIApplication.sharedApplication().openURL(url)
         println("Calling")
@@ -213,32 +232,45 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         UIView.animateWithDuration(0.25, animations: { self.callPhoneNumber.frame  = CGRectMake(0, buttonheight*10, self.view.frame.width,buttonheight*3 - 45)})
         
-        var rightBarButtonItem = UIBarButtonItem(title: "Navigate to Destination", style: UIBarButtonItemStyle.Plain, target: self, action: "navigateToDestination")
+        var rightBarButtonItem = UIBarButtonItem(title: "BOL", style: UIBarButtonItemStyle.Plain, target: self, action: "bol")
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         self.navigationItem.leftBarButtonItem = nil
     }
     
-    func navigateToDestination() {
+    func bol() {
         
-        self.manager = CLLocationManager()
-        self.manager!.startUpdatingLocation()
-        println("Location Updated")
         
-        let request = MKDirectionsRequest()
-        request.setSource(MKMapItem.mapItemForCurrentLocation())
+        var bolVC = BillOfLadingViewController()
         
-        let latitude = (blat as NSString).doubleValue
-        let longitude = (blng as NSString).doubleValue
+        self.navigationController?.pushViewController(bolVC, animated: true)
         
-        let deliveryCoordinate = MKPlacemark(coordinate: CLLocationCoordinate2DMake(latitude, longitude), addressDictionary: nil)
+        bolVC.shipperAddressFull = shipperAddressFull
+        bolVC.shipperLat = shipperLat
+        bolVC.shipperLng = shipperLng
         
-   
-        var deliveryVC = DeliveryViewController(frame: self.view.frame, delivery: MKMapItem(placemark: deliveryCoordinate))
+        bolVC.shipperName = shipperName
+        bolVC.shipperCompany = shipperCompany
+        bolVC.shipperAddress = shipperAddress
+        bolVC.shipperCity = shipperCity
+        bolVC.shipperState = shipperState
+        bolVC.shipperPhone = shipperPhone
+        bolVC.shipperEmail = shipperEmail
         
-        self.navigationController?.pushViewController(deliveryVC, animated: false)
-        deliveryVC.getDirections()
-        deliveryVC.configureToolbar()
-        deliveryVC.deliveryAddressFull = deliveryAddressFull
+        bolVC.deliveryName = deliveryName
+        bolVC.deliveryAddress = deliveryAddress
+        bolVC.deliveryCity = deliveryCity
+        bolVC.deliveryState = deliveryState
+        bolVC.deliveryPhone = deliveryPhone
+        
+        bolVC.weight = weight
+        
+        
+        bolVC.deliveryAddressFull = deliveryAddressFull
+        bolVC.deliveryLat = deliveryLat
+        bolVC.deliveryLng = deliveryLng
+
+        
+        
     }
     
     
@@ -255,8 +287,8 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             self.label!.clipsToBounds = true
             self.label!.backgroundColor = UIColor(red:0.43, green:0.43, blue:0.43, alpha:1.0)
             self.label!.textColor = UIColor.whiteColor()
-            self.label!.text = pickupAddressFull! + "\n"
-            self.label!.textAlignment = NSTextAlignment.Left
+            self.label!.text = shipperAddressFull + "\n"
+            self.label!.textAlignment = NSTextAlignment.Center
             UIView.animateWithDuration(0.25, animations: { self.label!.frame  = CGRectMake(0, buttonheight*7, self.view.frame.width,buttonheight*3 - 45)})
             
         self.view.addSubview(self.label!)
@@ -265,7 +297,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             callPhoneNumber.frame = CGRectMake((self.view.bounds.size.width - 250) / 2.0, buttonheight * 10, 250, 50)
             callPhoneNumber.backgroundColor = UIColor.clearColor()
             callPhoneNumber.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            callPhoneNumber.setTitle(contactName + ": " + phoneNumber, forState: UIControlState.Normal)
+            callPhoneNumber.setTitle(shipperName + ": " + shipperPhone, forState: UIControlState.Normal)
             callPhoneNumber.addTarget(self, action: "calling:", forControlEvents: UIControlEvents.TouchUpInside)
             callPhoneNumber.titleLabel!.font = UIFont (name: "Arial", size:14.0)
             callPhoneNumber.layer.cornerRadius = 10
@@ -315,7 +347,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
         override func viewDidAppear(animated: Bool) {
             
-            self.annotation.title = pickupAddressFull
+            self.annotation.title = shipperAddressFull
             annotation.coordinate = destination!.placemark.coordinate
             map!.addAnnotation(annotation)
             

@@ -124,25 +124,41 @@ class TableMapViewController: UIViewController {
         }
         if let load:Load = notification.object as? Load {
   
-            self.detailLoad?.lblPickup?.text = load.pickupCity + ", " + load.pickupState
+            self.detailLoad?.lblPickup?.text = load.shipperCity + ", " + load.shipperState
             self.detailLoad?.lblDelivery?.text = load.deliveryCity + ", " + load.deliveryState
             self.detailLoad?.lblTypeOfLoad?.text = load.typeOfLoad
             self.detailLoad?.lblWeight?.text = "Weight: " + load.weight
-            self.detailLoad?.id = load.id
-            self.detailLoad?.alat = load.alat
-            self.detailLoad?.alng = load.alng
             
             //Add + load.miles + load.pricePerMile + load.notes
             
             self.detailLoad?.lblMiles?.text = "Miles: "
             self.detailLoad?.lblPricePerMile?.text = "Price Per Mile: "
             self.detailLoad?.lblNotes?.text = "Notes: "
-            self.detailLoad?.pickupAddressFull = load.pickupAddress + " " + load.pickupCity + ", " + load.pickupState
-            self.detailLoad?.phoneNumber = load.phoneNumber
-            self.detailLoad?.contactName = load.contactName
-            self.detailLoad?.blat = load.blat
-            self.detailLoad?.blng = load.blng
+    
+            self.detailLoad?.id = load.id
+            self.detailLoad?.shipperAddressFull = load.shipperAddress + " " + load.shipperCity + ", " + load.shipperState
             self.detailLoad?.deliveryAddressFull = load.deliveryAddress + " " + load.deliveryCity + ", " + load.deliveryState
+            
+
+            self.detailLoad?.shipperName = load.shipperName
+            self.detailLoad?.shipperCompany = load.shipperCompany
+            self.detailLoad?.shipperAddress = load.shipperAddress
+            self.detailLoad?.shipperCity = load.shipperCity
+            self.detailLoad?.shipperState = load.shipperState
+            self.detailLoad?.shipperPhone = load.shipperPhone
+            self.detailLoad?.shipperEmail = load.shipperEmail
+            self.detailLoad?.shipperLat = load.shipperLat
+            self.detailLoad?.shipperLng = load.shipperLng
+            
+            self.detailLoad?.deliveryName = load.deliveryName
+            self.detailLoad?.deliveryAddress = load.deliveryAddress
+            self.detailLoad?.deliveryCity = load.deliveryCity
+            self.detailLoad?.deliveryState = load.deliveryState
+            self.detailLoad?.deliveryPhone = load.deliveryPhone
+            self.detailLoad?.deliveryLat = load.deliveryLat
+            self.detailLoad?.deliveryLng = load.deliveryLng
+            
+            self.detailLoad?.weight = load.weight
             
         } else {
             println("no load at TableMapController")

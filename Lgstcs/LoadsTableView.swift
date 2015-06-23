@@ -49,12 +49,12 @@ class LoadsTableView: UITableViewController,UITableViewDelegate, UITableViewData
         attachment.image = UIImage(named: "Right-50.png")
         var attachmentString = NSAttributedString(attachment: attachment)
         var attachmentString2 = NSAttributedString(string: load.deliveryCity + ", " + load.deliveryState)
-        var arrowIcon = NSMutableAttributedString(string: load.pickupCity + ", " + load.pickupState)
+        var arrowIcon = NSMutableAttributedString(string: load.shipperCity + ", " + load.shipperState)
         arrowIcon.appendAttributedString(attachmentString)
         arrowIcon.appendAttributedString(attachmentString2)
         cell.textLabel!.attributedText = arrowIcon
         
-        println("Point Location: \(load.alat) \(load.alng) \(load.weight)")
+        println("Point Location: \(load.shipperLat) \(load.shipperLng) \(load.weight)")
         return cell
     }
     

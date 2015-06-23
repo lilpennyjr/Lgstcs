@@ -63,10 +63,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             var point:MapPointAnnotation = MapPointAnnotation()
             var v = someLoads[i] as Load
             point.load = v
-            let latitude = (v.alat as NSString).doubleValue
-            let longitude = (v.alng as NSString).doubleValue
+            let latitude = (v.shipperLat as NSString).doubleValue
+            let longitude = (v.shipperLng as NSString).doubleValue
             point.coordinate = CLLocationCoordinate2DMake(latitude,longitude);
-            point.title = v.pickupCity as String + ", " + v.pickupState as String + " to " + v.deliveryCity as String + ", " + v.deliveryState
+            point.title = v.shipperCity as String + ", " + v.shipperState as String + " to " + v.deliveryCity as String + ", " + v.deliveryState
             point.subtitle = v.typeOfLoad
             loadPoints[v.ident] = point
             
@@ -130,7 +130,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func rightButtonTapped(sender: UIButton!){
         if let load:Load = selectedLoad {
             
-            println("Load pickup:\(load.pickupCity)")
+            println("Load pickup:\(load.shipperCity)")
             
             NSNotificationCenter.defaultCenter().postNotificationName("navigateToDetail", object: load)
             

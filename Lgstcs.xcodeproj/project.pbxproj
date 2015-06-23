@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C187CC41B38BCD40050D94F /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C187CC31B38BCD40050D94F /* DriverViewController.swift */; };
+		4C187CC61B38EA430050D94F /* ProofOfDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C187CC51B38EA430050D94F /* ProofOfDeliveryViewController.swift */; };
 		4C552FF61B335904000C933D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C552FF51B335904000C933D /* AppDelegate.swift */; };
 		4C552FF91B335904000C933D /* Lgstcs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C552FF71B335904000C933D /* Lgstcs.xcdatamodeld */; };
 		4C552FFE1B335904000C933D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C552FFC1B335904000C933D /* Main.storyboard */; };
@@ -35,7 +37,6 @@
 		4C5530431B335A8A000C933D /* Delete Sign-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C55303D1B335A8A000C933D /* Delete Sign-50.png */; };
 		4C5530441B335A8A000C933D /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55303E1B335A8A000C933D /* DeliveryViewController.swift */; };
 		4C5530451B335A8A000C933D /* Down4-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C55303F1B335A8A000C933D /* Down4-50.png */; };
-		4C5530461B335A8A000C933D /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5530401B335A8A000C933D /* DriverViewController.swift */; };
 		4C5530551B335A97000C933D /* Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5530471B335A97000C933D /* Load.swift */; };
 		4C5530561B335A97000C933D /* LoadDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5530481B335A97000C933D /* LoadDetailViewController.swift */; };
 		4C5530571B335A97000C933D /* LoadsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5530491B335A97000C933D /* LoadsTableView.swift */; };
@@ -50,6 +51,10 @@
 		4C5530601B335A97000C933D /* TurnLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5530521B335A97000C933D /* TurnLeft.png */; };
 		4C5530611B335A97000C933D /* TurnRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5530531B335A97000C933D /* TurnRight.png */; };
 		4C5530621B335A97000C933D /* U-Turn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C5530541B335A97000C933D /* U-Turn.png */; };
+		4C5B4B761B363A200093E3AD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B751B363A200093E3AD /* Social.framework */; };
+		4C5B4B781B363A280093E3AD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B771B363A280093E3AD /* Accounts.framework */; };
+		4C5B4B7C1B36576C0093E3AD /* BillOfLadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */; };
+		B504A7468DEA025E48545AF2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D120BB9ABD8B6430764EA497 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C187CC31B38BCD40050D94F /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
+		4C187CC51B38EA430050D94F /* ProofOfDeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProofOfDeliveryViewController.swift; sourceTree = "<group>"; };
 		4C552FF01B335904000C933D /* Lgstcs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lgstcs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C552FF41B335904000C933D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C552FF51B335904000C933D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +102,6 @@
 		4C55303D1B335A8A000C933D /* Delete Sign-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Delete Sign-50.png"; sourceTree = "<group>"; };
 		4C55303E1B335A8A000C933D /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		4C55303F1B335A8A000C933D /* Down4-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Down4-50.png"; sourceTree = "<group>"; };
-		4C5530401B335A8A000C933D /* DriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
 		4C5530471B335A97000C933D /* Load.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Load.swift; sourceTree = "<group>"; };
 		4C5530481B335A97000C933D /* LoadDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadDetailViewController.swift; sourceTree = "<group>"; };
 		4C5530491B335A97000C933D /* LoadsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadsTableView.swift; sourceTree = "<group>"; };
@@ -110,6 +116,12 @@
 		4C5530521B335A97000C933D /* TurnLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnLeft.png; sourceTree = "<group>"; };
 		4C5530531B335A97000C933D /* TurnRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnRight.png; sourceTree = "<group>"; };
 		4C5530541B335A97000C933D /* U-Turn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "U-Turn.png"; sourceTree = "<group>"; };
+		4C5B4B751B363A200093E3AD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		4C5B4B771B363A280093E3AD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillOfLadingViewController.swift; sourceTree = "<group>"; };
+		851EFB429DA1D93FAEFC5569 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D120BB9ABD8B6430764EA497 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB1AB52559DD03E96E43D9E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5B4B781B363A280093E3AD /* Accounts.framework in Frameworks */,
+				4C5B4B761B363A200093E3AD /* Social.framework in Frameworks */,
 				4C5530311B33599D000C933D /* libsqlite3.dylib in Frameworks */,
 				4C55302F1B33598F000C933D /* libz.dylib in Frameworks */,
 				4C55302D1B33597C000C933D /* SystemConfiguration.framework in Frameworks */,
@@ -131,6 +145,7 @@
 				4C55301D1B335930000C933D /* AudioToolbox.framework in Frameworks */,
 				4C55301B1B335924000C933D /* Parse.framework in Frameworks */,
 				4C55301A1B335924000C933D /* Bolts.framework in Frameworks */,
+				B504A7468DEA025E48545AF2 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +168,8 @@
 				4C552FF21B335904000C933D /* Lgstcs */,
 				4C55300B1B335904000C933D /* LgstcsTests */,
 				4C552FF11B335904000C933D /* Products */,
+				D00828D62CB344BA50588A8A /* Pods */,
+				A874EDB7EABDBA3495D1E3A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,15 +185,17 @@
 		4C552FF21B335904000C933D /* Lgstcs */ = {
 			isa = PBXGroup;
 			children = (
-				4C5530401B335A8A000C933D /* DriverViewController.swift */,
+				4C5530471B335A97000C933D /* Load.swift */,
+				4C55304A1B335A97000C933D /* MapPointAnnotation.swift */,
+				4C187CC31B38BCD40050D94F /* DriverViewController.swift */,
 				4C5530511B335A97000C933D /* TableMapViewController.swift */,
 				4C5530491B335A97000C933D /* LoadsTableView.swift */,
 				4C55304B1B335A97000C933D /* MapViewController.swift */,
-				4C5530471B335A97000C933D /* Load.swift */,
-				4C55304A1B335A97000C933D /* MapPointAnnotation.swift */,
 				4C5530481B335A97000C933D /* LoadDetailViewController.swift */,
 				4C55304C1B335A97000C933D /* PickupViewController.swift */,
+				4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */,
 				4C55303E1B335A8A000C933D /* DeliveryViewController.swift */,
+				4C187CC51B38EA430050D94F /* ProofOfDeliveryViewController.swift */,
 				4C552FFC1B335904000C933D /* Main.storyboard */,
 				4C5530391B335A78000C933D /* TopAlignedText.swift */,
 				4C55303C1B335A8A000C933D /* CustomAlert.swift */,
@@ -253,6 +272,25 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		A874EDB7EABDBA3495D1E3A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C5B4B771B363A280093E3AD /* Accounts.framework */,
+				4C5B4B751B363A200093E3AD /* Social.framework */,
+				D120BB9ABD8B6430764EA497 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D00828D62CB344BA50588A8A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				851EFB429DA1D93FAEFC5569 /* Pods.debug.xcconfig */,
+				EB1AB52559DD03E96E43D9E8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,9 +298,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C5530121B335905000C933D /* Build configuration list for PBXNativeTarget "Lgstcs" */;
 			buildPhases = (
+				3F77E186260CAC96724E779A /* Check Pods Manifest.lock */,
 				4C552FEC1B335904000C933D /* Sources */,
 				4C552FED1B335904000C933D /* Frameworks */,
 				4C552FEE1B335904000C933D /* Resources */,
+				5CB99157026B4111B96207BD /* Embed Pods Frameworks */,
+				57024173381ED2CABF731336 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,15 +409,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F77E186260CAC96724E779A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		57024173381ED2CABF731336 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CB99157026B4111B96207BD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C552FEC1B335904000C933D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4C55305A1B335A97000C933D /* PickupViewController.swift in Sources */,
+				4C187CC61B38EA430050D94F /* ProofOfDeliveryViewController.swift in Sources */,
 				4C5530591B335A97000C933D /* MapViewController.swift in Sources */,
 				4C5530581B335A97000C933D /* MapPointAnnotation.swift in Sources */,
-				4C5530461B335A8A000C933D /* DriverViewController.swift in Sources */,
 				4C552FF61B335904000C933D /* AppDelegate.swift in Sources */,
 				4C55303A1B335A78000C933D /* TopAlignedText.swift in Sources */,
 				4C5530571B335A97000C933D /* LoadsTableView.swift in Sources */,
@@ -385,6 +474,8 @@
 				4C552FF91B335904000C933D /* Lgstcs.xcdatamodeld in Sources */,
 				4C5530551B335A97000C933D /* Load.swift in Sources */,
 				4C55305F1B335A97000C933D /* TableMapViewController.swift in Sources */,
+				4C5B4B7C1B36576C0093E3AD /* BillOfLadingViewController.swift in Sources */,
+				4C187CC41B38BCD40050D94F /* DriverViewController.swift in Sources */,
 				4C5530421B335A8A000C933D /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +601,7 @@
 		};
 		4C5530131B335905000C933D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 851EFB429DA1D93FAEFC5569 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -524,6 +616,7 @@
 		};
 		4C5530141B335905000C933D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1AB52559DD03E96E43D9E8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -589,6 +682,7 @@
 				4C5530141B335905000C933D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C5530151B335905000C933D /* Build configuration list for PBXNativeTarget "LgstcsTests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +691,7 @@
 				4C5530171B335905000C933D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -25,14 +25,32 @@ class LoadDetailViewController: UIViewController {
     var id = ""
     let button = UIButton.buttonWithType(UIButtonType.System) as! UIButton
     var manager: CLLocationManager!
-    var alat = ""
-    var alng = ""
-    var blat = ""
-    var blng = ""
-    var pickupAddressFull = ""
-    var phoneNumber = ""
-    var contactName = ""
+    
+    var shipperAddressFull = ""
+    var shipperLat = ""
+    var shipperLng = ""
+    
+    var shipperName = ""
+    var shipperCompany = ""
+    var shipperAddress = ""
+    var shipperCity = ""
+    var shipperState = ""
+    var shipperPhone = ""
+    var shipperEmail = ""
+    
+    var deliveryName = ""
+    var deliveryAddress = ""
+    var deliveryCity = ""
+    var deliveryState = ""
+    var deliveryPhone = ""
+    
+    var weight = ""
+    var units = ""
+    var mileage = ""
+    
     var deliveryAddressFull = ""
+    var deliveryLat = ""
+    var deliveryLng = ""
     
     
     var navHeight:CGFloat?
@@ -150,38 +168,57 @@ class LoadDetailViewController: UIViewController {
         
         super.viewDidLoad()
         
-        println(pickupAddressFull)
+        println(shipperAddressFull)
         
     }
 
     //Provide directions in new instance of MapViewController
     
-    func provideDirections(){
+    func route(){
         
-                    self.manager = CLLocationManager()
-                    self.manager.startUpdatingLocation()
-                    println("Location Updated")
-
-                    let request = MKDirectionsRequest()
-                    request.setSource(MKMapItem.mapItemForCurrentLocation())
+        self.manager = CLLocationManager()
+        self.manager.startUpdatingLocation()
+        println("Location Updated")
         
-                    let latitude = (alat as NSString).doubleValue
-                    let longitude = (alng as NSString).doubleValue
+        let request = MKDirectionsRequest()
+        request.setSource(MKMapItem.mapItemForCurrentLocation())
         
-                    let destinationCoordinate = MKPlacemark(coordinate: CLLocationCoordinate2DMake(latitude, longitude), addressDictionary: nil)
+        let latitude = (shipperLat as NSString).doubleValue
+        let longitude = (shipperLng as NSString).doubleValue
         
-                    var pickupVC = PickupViewController(frame: self.view.frame, destination: MKMapItem(placemark: destinationCoordinate))
+        let destinationCoordinate = MKPlacemark(coordinate: CLLocationCoordinate2DMake(latitude, longitude), addressDictionary: nil)
         
-
-                    self.navigationController?.pushViewController(pickupVC, animated: true)
-                    pickupVC.getDirections()
-                    pickupVC.configureToolbar()
-                    pickupVC.pickupAddressFull = pickupAddressFull
-                    pickupVC.phoneNumber = phoneNumber
-                    pickupVC.contactName = contactName
-                    pickupVC.blat = blat
-                    pickupVC.blng = blng
-                    pickupVC.deliveryAddressFull = deliveryAddressFull
+        var pickupVC = PickupViewController(frame: self.view.frame, destination: MKMapItem(placemark: destinationCoordinate))
+        
+        
+        self.navigationController?.pushViewController(pickupVC, animated: true)
+        pickupVC.getDirections()
+        pickupVC.configureToolbar()
+        pickupVC.shipperAddressFull = shipperAddressFull
+        pickupVC.shipperLat = shipperLat
+        pickupVC.shipperLng = shipperLng
+        
+        pickupVC.shipperName =  shipperName
+        pickupVC.shipperCompany = shipperCompany
+        pickupVC.shipperAddress = shipperAddress
+        pickupVC.shipperCity = shipperCity
+        pickupVC.shipperState = shipperState
+        pickupVC.shipperPhone = shipperPhone
+        pickupVC.shipperEmail = shipperEmail
+        
+        pickupVC.deliveryName = deliveryName
+        pickupVC.deliveryAddress = deliveryAddress
+        pickupVC.deliveryCity = deliveryCity
+        pickupVC.deliveryState = deliveryState
+        pickupVC.deliveryPhone = deliveryPhone
+        
+        pickupVC.weight = weight
+       
+        
+        pickupVC.deliveryAddressFull = deliveryAddressFull
+        pickupVC.deliveryLat = deliveryLat
+        pickupVC.deliveryLng = deliveryLng
+    
     
     }
     func acceptLoad() {
@@ -211,7 +248,7 @@ class LoadDetailViewController: UIViewController {
         CustomAlert().showAlert("Bid Accepted", subTitle: "", style: AlertStyle.Success)
         
         
-        var rightBarButtonItem = UIBarButtonItem(title: "Route", style: UIBarButtonItemStyle.Plain, target: self, action: "provideDirections")
+        var rightBarButtonItem = UIBarButtonItem(title: "Route", style: UIBarButtonItemStyle.Plain, target: self, action: "route")
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         self.acceptLoad()
         

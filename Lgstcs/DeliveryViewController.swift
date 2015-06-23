@@ -15,14 +15,17 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var map: MKMapView?
     var manager: CLLocationManager?
     var delivery: MKMapItem?
+    let toolbar = UIToolbar()
     var course: CLLocationDirection?
     var camera: MKMapCamera?
-    var deliveryAddressFull: String?
     var label: TopAlignedLabel?
     let arrivedButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
-    var blat = ""
-    var blng = ""
-    let toolbar = UIToolbar()
+    var callPhoneNumber = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    var deliveryAddressFull = ""
+    var deliveryName = ""
+    var deliveryPhone = ""
+    var deliveryLat = ""
+    var deliveryLng = ""
     
     
     
@@ -121,13 +124,6 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         self.view.addSubview(imageView)
         self.view.addSubview(lblDirections)
-        
-        var center: CLLocationCoordinate2D = delivery!.placemark.coordinate
-        var radius: CLLocationDistance = CLLocationDistance(300)
-        var identifier: String = "Destination"
-        let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
-        manager?.startMonitoringForRegion(region)
-        
     
     }
     
@@ -139,9 +135,6 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             renderer.lineWidth = 5.0
             return renderer
     }
-    
-    
-    
     
     
     func getDirections() {
@@ -184,10 +177,6 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         }
         
         let userLocation = self.map!.userLocation
-        //   let region = MKCoordinateRegionMakeWithDistance(
-        //   userLocation.location!.coordinate, 2000, 2000)
-        
-        //   map!.setRegion(region, animated: true)
     }
 
     func currentLoc() {
@@ -208,7 +197,7 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         UIView.animateWithDuration(0.25, animations: { self.label!.frame  = CGRectMake(0, buttonheight*10, self.view.frame.width, buttonheight*3 - 45)})
         UIView.animateWithDuration(0.25, animations: { self.arrivedButton.frame  = CGRectMake(0, buttonheight*10, self.view.frame.width,buttonheight*3 - 45)})
         
-        var rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        var rightBarButtonItem = UIBarButtonItem(title: "POD", style: UIBarButtonItemStyle.Plain, target: self, action: "pod")
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
         self.navigationItem.leftBarButtonItem = nil
     }
@@ -225,11 +214,24 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.label!.clipsToBounds = true
         self.label!.backgroundColor = UIColor(red:0.43, green:0.43, blue:0.43, alpha:1.0)
         self.label!.textColor = UIColor.whiteColor()
-        self.label!.text = deliveryAddressFull! + "\n"
+        self.label!.text = deliveryAddressFull + "\n"
         self.label!.textAlignment = NSTextAlignment.Center
         UIView.animateWithDuration(0.25, animations: { self.label!.frame  = CGRectMake(0, buttonheight*7, self.view.frame.width,buttonheight*3 - 45)})
         
         self.view.addSubview(self.label!)
+        
+        callPhoneNumber.frame = CGRectMake((self.view.bounds.size.width - 250) / 2.0, buttonheight * 10, 250, 50)
+        callPhoneNumber.backgroundColor = UIColor.clearColor()
+        callPhoneNumber.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        callPhoneNumber.setTitle(deliveryName + ": " + deliveryPhone, forState: UIControlState.Normal)
+        callPhoneNumber.addTarget(self, action: "calling:", forControlEvents: UIControlEvents.TouchUpInside)
+        callPhoneNumber.titleLabel!.font = UIFont (name: "Arial", size:14.0)
+        callPhoneNumber.layer.cornerRadius = 10
+        callPhoneNumber.clipsToBounds = true
+        
+        UIView.animateWithDuration(0.25, animations: { self.callPhoneNumber.frame  = CGRectMake((self.view.frame.width - 250)/2, buttonheight*7.2, 250,50)})
+        
+        self.view.addSubview(callPhoneNumber)
         
         
         
@@ -257,18 +259,17 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
     }
     
-//      func locationManager(manager: CLLocationManager!, didExitRegion: CLRegion) {
-//
-//        var buttonheight = (view.frame.size.height / 10)
-//        
-//        UIView.animateWithDuration(0.25, animations: { self.label!.frame  = CGRectMake(0, buttonheight*10, self.view.frame.width, buttonheight*3 - 45)})
-//        UIView.animateWithDuration(0.25, animations: { self.arrivedButton.frame  = CGRectMake(0, buttonheight*10, self.view.frame.width,buttonheight*3 - 45)})
-//            
-//        }
-//        
         func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
             println("Did Fail")
         }
+    
+    func pod() {
+        
+        var podVC = ProofOfDeliveryViewController()
+        
+        self.navigationController?.pushViewController(podVC, animated: true)
+
+    }
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -279,7 +280,11 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         
         override func viewDidAppear(animated: Bool) {
             
-
+            var center: CLLocationCoordinate2D = delivery!.placemark.coordinate
+            var radius: CLLocationDistance = CLLocationDistance(300)
+            var identifier: String = "Destination"
+            let region = CLCircularRegion(center: center, radius: radius, identifier: identifier)
+            manager?.startMonitoringForRegion(region)
             
         }
         
@@ -287,16 +292,5 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-        
-        
-        /*
-        // MARK: - Navigation
-        
-        // In a storyboard-based application, you will often want to do a little preparation before navigation
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        }
-        */
         
 }
