@@ -58,7 +58,6 @@ class ProofOfDeliveryViewController: FormViewController {
         
     }
     
-    
     convenience init () {
         self.init(nibName: nil, bundle: nil)
         self.loadForm()

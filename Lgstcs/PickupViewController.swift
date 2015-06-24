@@ -268,8 +268,10 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         bolVC.deliveryAddressFull = deliveryAddressFull
         bolVC.deliveryLat = deliveryLat
         bolVC.deliveryLng = deliveryLng
-
         
+        println(deliveryLng)
+        println(deliveryLat)
+
         
     }
     

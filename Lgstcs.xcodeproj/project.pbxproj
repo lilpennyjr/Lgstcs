@@ -54,6 +54,8 @@
 		4C5B4B761B363A200093E3AD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B751B363A200093E3AD /* Social.framework */; };
 		4C5B4B781B363A280093E3AD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B771B363A280093E3AD /* Accounts.framework */; };
 		4C5B4B7C1B36576C0093E3AD /* BillOfLadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */; };
+		4CCCC3901B3A5E2400ECFFDC /* BOLSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCCC38F1B3A5E2400ECFFDC /* BOLSignatureViewController.swift */; };
+		4CCCC3941B3A6F3F00ECFFDC /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCCC3931B3A6F3F00ECFFDC /* SignatureView.swift */; };
 		B504A7468DEA025E48545AF2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D120BB9ABD8B6430764EA497 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -119,6 +121,8 @@
 		4C5B4B751B363A200093E3AD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4C5B4B771B363A280093E3AD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillOfLadingViewController.swift; sourceTree = "<group>"; };
+		4CCCC38F1B3A5E2400ECFFDC /* BOLSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOLSignatureViewController.swift; sourceTree = "<group>"; };
+		4CCCC3931B3A6F3F00ECFFDC /* SignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		851EFB429DA1D93FAEFC5569 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D120BB9ABD8B6430764EA497 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1AB52559DD03E96E43D9E8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,9 +198,11 @@
 				4C5530481B335A97000C933D /* LoadDetailViewController.swift */,
 				4C55304C1B335A97000C933D /* PickupViewController.swift */,
 				4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */,
+				4CCCC38F1B3A5E2400ECFFDC /* BOLSignatureViewController.swift */,
 				4C55303E1B335A8A000C933D /* DeliveryViewController.swift */,
 				4C187CC51B38EA430050D94F /* ProofOfDeliveryViewController.swift */,
 				4C552FFC1B335904000C933D /* Main.storyboard */,
+				4CCCC3931B3A6F3F00ECFFDC /* SignatureView.swift */,
 				4C5530391B335A78000C933D /* TopAlignedText.swift */,
 				4C55303C1B335A8A000C933D /* CustomAlert.swift */,
 				4C552FF51B335904000C933D /* AppDelegate.swift */,
@@ -463,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C55305A1B335A97000C933D /* PickupViewController.swift in Sources */,
+				4CCCC3941B3A6F3F00ECFFDC /* SignatureView.swift in Sources */,
 				4C187CC61B38EA430050D94F /* ProofOfDeliveryViewController.swift in Sources */,
 				4C5530591B335A97000C933D /* MapViewController.swift in Sources */,
 				4C5530581B335A97000C933D /* MapPointAnnotation.swift in Sources */,
@@ -476,6 +483,7 @@
 				4C55305F1B335A97000C933D /* TableMapViewController.swift in Sources */,
 				4C5B4B7C1B36576C0093E3AD /* BillOfLadingViewController.swift in Sources */,
 				4C187CC41B38BCD40050D94F /* DriverViewController.swift in Sources */,
+				4CCCC3901B3A5E2400ECFFDC /* BOLSignatureViewController.swift in Sources */,
 				4C5530421B335A8A000C933D /* CustomAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

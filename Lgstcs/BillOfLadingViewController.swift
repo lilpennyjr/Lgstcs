@@ -9,11 +9,9 @@
 import UIKit
 import SwiftForms
 import Parse
-import MapKit
 
 class BillOfLadingViewController: FormViewController {
     
-    var manager: CLLocationManager!
     var shipperAddressFull = ""
     var shipperLat = ""
     var shipperLng = ""
@@ -41,7 +39,6 @@ class BillOfLadingViewController: FormViewController {
     var deliveryAddressFull = ""
     var deliveryLat = ""
     var deliveryLng = ""
-
     
     
     
@@ -87,39 +84,25 @@ class BillOfLadingViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Route", style: .Plain, target: self, action: "route:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign", style: .Plain, target: self, action: "sign:")
         self.navigationItem.hidesBackButton = true
         self.loadForm()
     }
     
     /// MARK: Actions
     
-    func route(_: UIBarButtonItem!) {
+    func sign(_: UIBarButtonItem!) {
                // println(form.formValues().description)
         println(form)
-      
         
-        self.manager = CLLocationManager()
-        self.manager!.startUpdatingLocation()
-        println("Location Updated")
+        var bolSign = BOLSignatureViewController()
         
-        let request = MKDirectionsRequest()
-        request.setSource(MKMapItem.mapItemForCurrentLocation())
-        
-        let latitude = (deliveryLat as NSString).doubleValue
-        let longitude = (deliveryLng as NSString).doubleValue
-        
-        let deliveryCoordinate = MKPlacemark(coordinate: CLLocationCoordinate2DMake(latitude, longitude), addressDictionary: nil)
-        
-        
-        var deliveryVC = DeliveryViewController(frame: self.view.frame, delivery: MKMapItem(placemark: deliveryCoordinate))
-        
-        self.navigationController?.pushViewController(deliveryVC, animated: false)
-        deliveryVC.getDirections()
-        deliveryVC.configureToolbar()
-        deliveryVC.deliveryAddressFull = deliveryAddressFull
-        deliveryVC.deliveryPhone = deliveryPhone
-        deliveryVC.deliveryName = deliveryName
+        self.navigationController?.pushViewController(bolSign, animated: false)
+        bolSign.deliveryAddressFull = deliveryAddressFull
+        bolSign.deliveryPhone = deliveryPhone
+        bolSign.deliveryName = deliveryName
+        bolSign.deliveryLat = deliveryLat
+        bolSign.deliveryLng = deliveryLng
         
     }
     
@@ -269,9 +252,9 @@ class BillOfLadingViewController: FormViewController {
         section4.headerTitle = "Load Information"
         
         
-        
-        form.sections = [section1, section2, section3, section4,]
+        form.sections = [section1, section2, section3, section4]
         
         self.form = form
     }
+    
 }
