@@ -33,9 +33,17 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let vtv:TableMapViewController = TableMapViewController(frame: self.window?.frame as CGRect!)
+        self.window!.backgroundColor = UIColor.whiteColor()
+        self.window!.makeKeyAndVisible()
+        
+        self.loadArr()
+        
+        self.navigationItem.hidesBackButton = true
+        
         manager = CLLocationManager()
 //        manager.delegate = self
-        self.loadArr()
         
         //Check if App has authorization to access user location
         
@@ -51,6 +59,7 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     message: "Location services are not allowed for this app")
             default:
                 println("Default")
+                manager.startUpdatingLocation()
             }
             
         } else {
@@ -61,10 +70,10 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         
     }
         func loadArr(){
+
         //Create loads Array using Parse.com
         var loadsArr: Array<Load> = [] {
             didSet {
-                
                 let vtv:TableMapViewController = TableMapViewController(frame: self.window?.frame as CGRect!)
                 vtv.setLoadCollection(loadsArr)
                 let nav:UINavigationController = UINavigationController(rootViewController: vtv)
@@ -75,9 +84,26 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
             
         }
+            
+            PFGeoPoint.geoPointForCurrentLocationInBackground {
+                (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+                if error == nil {
+                    
+                    var user = PFUser.currentUser()
+                
+        println(geoPoint)
+        let userGeoPoint = geoPoint
+                
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
         
-        // query should be current location + radius → pickupDate > currentDate → available == true
+        // query is current location + radius → pickupDate > currentDate → available == true
         var query = PFQuery(className:"load")
+        query.whereKey("shipperGeo", nearGeoPoint:userGeoPoint!)
+        query.whereKey("shipDate", greaterThan: date)
         query.whereKey("available", equalTo:true)
         query.includeKey("load")
         query.findObjectsInBackgroundWithBlock( {
@@ -89,9 +115,9 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                 if let objects = objects as? [PFObject] {
                     for object in objects {
                         
-                        //Latitude and Longitude are both Int in Parse. Code should either be changed to defining them as a Int or cast them here as a string. Currently have them as both an Int and String in Parse.
+                        //Latitude and Longitude are both Strings in Parse
                         
-                        let x = Load(aIdent: (object["Ident"] as! Int),aShipperName: (object["shipperName"] as! String), aShipperCompany: (object["shipperCompany"] as! String), aShipperAddress: (object["shipperAddress"] as! String), aShipperCity: (object["shipperCity"] as! String), aShipperState: (object["shipperState"] as! String), aShipperPhone: (object["shipperPhone"] as! String), aShipperEmail: (object["shipperEmail"] as! String), aShipperLat: (object["shipperLat"] as! String), aShipperLng: (object["shipperLng"] as! String), aDeliveryName: (object["deliveryName"] as! String), aDeliveryAddress: (object["deliveryAddress"] as! String), aDeliveryCity: (object["deliveryCity"] as! String), aDeliveryState: (object["deliveryState"] as! String), aDeliveryPhone: (object["deliveryPhone"] as! String), aDeliveryLat: (object["deliveryLat"] as! String), aDeliveryLng: (object["deliveryLng"] as! String), aTypeOfLoad: (object["typeofLoad"] as! String), aWeight: (object["weight"] as! String),  aId: (object["objectID"] as! String))
+                        let x = Load(aIdent: (object["Ident"] as! Int), aShipDate: (object["shipDate"] as! NSDate), aShipperName: (object["shipperName"] as! String), aShipperCompany: (object["shipperCompany"] as! String), aShipperAddress: (object["shipperAddress"] as! String), aShipperCity: (object["shipperCity"] as! String), aShipperState: (object["shipperState"] as! String), aShipperPhone: (object["shipperPhone"] as! String), aShipperEmail: (object["shipperEmail"] as! String), aShipperLat: (object["shipperLat"] as! String), aShipperLng: (object["shipperLng"] as! String), aDeliveryDate: (object["deliveryDate"] as! NSDate), aDeliveryName: (object["deliveryName"] as! String), aDeliveryAddress: (object["deliveryAddress"] as! String), aDeliveryCity: (object["deliveryCity"] as! String), aDeliveryState: (object["deliveryState"] as! String), aDeliveryPhone: (object["deliveryPhone"] as! String), aDeliveryLat: (object["deliveryLat"] as! String), aDeliveryLng: (object["deliveryLng"] as! String), aTypeOfLoad: (object["typeofLoad"] as! String), aWeight: (object["weight"] as! String),  aId: (object["objectID"] as! String))
                         
                         loadsArr.append(x)
                         
@@ -103,11 +129,11 @@ class DriverViewController: UIViewController, MKMapViewDelegate, CLLocationManag
             }
             }
        )
-    
+                }
+            }
 }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
         
     }
     

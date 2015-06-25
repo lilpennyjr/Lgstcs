@@ -10,17 +10,21 @@ import UIKit
 import CoreData
 import Parse
 import Bolts
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var manager: CLLocationManager?
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("lq1wCTp0OSNGBH5lqRzCAv3KUJ6HfwXjrlC4CeSM", clientKey: "1PMlFQVA3nsUmveYzbel1Of2eY212M4Z5qYpbW1Y")
+        manager = CLLocationManager()
+        manager!.startUpdatingLocation()
         
-        // Override point for customization after application launch.
+        // Override point for customization afte!r application launch.
         return true
     }
 

@@ -43,7 +43,7 @@ class SignatureView: UIView {
         super.init(frame: frame)
         
         var lblHeight: CGFloat = 61.0
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.clearColor()
         beizerPath.lineWidth = 2.0
         lblSignature.frame = CGRectMake(0, self.frame.size.height/2 - lblHeight/2, self.frame.size.width, lblHeight);
         lblSignature.font = UIFont (name: "HelveticaNeue-UltraLight", size: 30)

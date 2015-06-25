@@ -34,6 +34,8 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var shipperPhone = ""
     var shipperEmail = ""
     
+    
+    var deliveryDate: ()
     var deliveryName = ""
     var deliveryAddress = ""
     var deliveryCity = ""
@@ -47,6 +49,8 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var deliveryAddressFull = ""
     var deliveryLat = ""
     var deliveryLng = ""
+    
+    var id = ""
     
     
     
@@ -268,6 +272,7 @@ class PickupViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         bolVC.deliveryAddressFull = deliveryAddressFull
         bolVC.deliveryLat = deliveryLat
         bolVC.deliveryLng = deliveryLng
+        bolVC.id = id
         
         println(deliveryLng)
         println(deliveryLat)

@@ -140,6 +140,7 @@ class TableMapViewController: UIViewController {
             self.detailLoad?.deliveryAddressFull = load.deliveryAddress + " " + load.deliveryCity + ", " + load.deliveryState
             
 
+            self.detailLoad?.shipDate = load.shipDate
             self.detailLoad?.shipperName = load.shipperName
             self.detailLoad?.shipperCompany = load.shipperCompany
             self.detailLoad?.shipperAddress = load.shipperAddress
@@ -150,6 +151,7 @@ class TableMapViewController: UIViewController {
             self.detailLoad?.shipperLat = load.shipperLat
             self.detailLoad?.shipperLng = load.shipperLng
             
+//            self.detailLoad?.deliveryDate = load.deliveryDate
             self.detailLoad?.deliveryName = load.deliveryName
             self.detailLoad?.deliveryAddress = load.deliveryAddress
             self.detailLoad?.deliveryCity = load.deliveryCity

@@ -26,6 +26,7 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     var deliveryPhone = ""
     var deliveryLat = ""
     var deliveryLng = ""
+    var id = ""
     
     
     
@@ -257,6 +258,14 @@ class DeliveryViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         manager.stopMonitoringForRegion(region)
 
         
+    }
+    
+    func calling(sender: UIButton) {
+        
+        let phone = deliveryPhone
+        let url:NSURL = NSURL(string:phone)!;
+        UIApplication.sharedApplication().openURL(url)
+        println("Calling")
     }
     
         func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {

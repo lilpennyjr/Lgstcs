@@ -33,6 +33,8 @@ class ProofOfDeliveryViewController: FormViewController {
     var units = ""
     var mileage = ""
     
+    var id = ""
+    
     
     struct Static {
         static let pickupDate = "pickupDate"

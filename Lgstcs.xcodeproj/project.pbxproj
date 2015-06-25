@@ -54,6 +54,7 @@
 		4C5B4B761B363A200093E3AD /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B751B363A200093E3AD /* Social.framework */; };
 		4C5B4B781B363A280093E3AD /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5B4B771B363A280093E3AD /* Accounts.framework */; };
 		4C5B4B7C1B36576C0093E3AD /* BillOfLadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */; };
+		4C7667741B3C584600272D60 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7667731B3C584600272D60 /* LoginViewController.swift */; };
 		4CCCC3901B3A5E2400ECFFDC /* BOLSignatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCCC38F1B3A5E2400ECFFDC /* BOLSignatureViewController.swift */; };
 		4CCCC3941B3A6F3F00ECFFDC /* SignatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCCC3931B3A6F3F00ECFFDC /* SignatureView.swift */; };
 		B504A7468DEA025E48545AF2 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D120BB9ABD8B6430764EA497 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -121,6 +122,7 @@
 		4C5B4B751B363A200093E3AD /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4C5B4B771B363A280093E3AD /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		4C5B4B7B1B36576C0093E3AD /* BillOfLadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillOfLadingViewController.swift; sourceTree = "<group>"; };
+		4C7667731B3C584600272D60 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4CCCC38F1B3A5E2400ECFFDC /* BOLSignatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BOLSignatureViewController.swift; sourceTree = "<group>"; };
 		4CCCC3931B3A6F3F00ECFFDC /* SignatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureView.swift; sourceTree = "<group>"; };
 		851EFB429DA1D93FAEFC5569 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		4C552FF21B335904000C933D /* Lgstcs */ = {
 			isa = PBXGroup;
 			children = (
+				4C7667731B3C584600272D60 /* LoginViewController.swift */,
 				4C5530471B335A97000C933D /* Load.swift */,
 				4C55304A1B335A97000C933D /* MapPointAnnotation.swift */,
 				4C187CC31B38BCD40050D94F /* DriverViewController.swift */,
@@ -472,6 +475,7 @@
 				4CCCC3941B3A6F3F00ECFFDC /* SignatureView.swift in Sources */,
 				4C187CC61B38EA430050D94F /* ProofOfDeliveryViewController.swift in Sources */,
 				4C5530591B335A97000C933D /* MapViewController.swift in Sources */,
+				4C7667741B3C584600272D60 /* LoginViewController.swift in Sources */,
 				4C5530581B335A97000C933D /* MapPointAnnotation.swift in Sources */,
 				4C552FF61B335904000C933D /* AppDelegate.swift in Sources */,
 				4C55303A1B335A78000C933D /* TopAlignedText.swift in Sources */,

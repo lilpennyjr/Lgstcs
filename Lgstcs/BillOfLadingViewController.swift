@@ -40,7 +40,9 @@ class BillOfLadingViewController: FormViewController {
     var deliveryLat = ""
     var deliveryLng = ""
     
-    
+    var id = ""
+    let date = NSDate()
+    let calendar = NSCalendar.currentCalendar()
     
     struct Static {
         static let pickupDate = "pickupDate"
@@ -71,7 +73,8 @@ class BillOfLadingViewController: FormViewController {
         static let units = "units"
         static let mileage = "mileage"
         static let check = "check"
-     
+        static let unknown = "unknown"
+        
         
     }
     
@@ -92,9 +95,33 @@ class BillOfLadingViewController: FormViewController {
     /// MARK: Actions
     
     func sign(_: UIBarButtonItem!) {
-               // println(form.formValues().description)
+                println(form.formValues().description)
         println(form)
         
+        
+//        UIGraphicsBeginImageContext(view.frame.size)
+//        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+//        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        let data = UIImagePNGRepresentation(viewImage)
+//        let documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+//        let writePath = documents.stringByAppendingPathComponent("bol.png")
+//        data.writeToFile(writePath, atomically:true)
+//        
+//        let imageFile = PFFile(name:"bol.png", data:data)
+//        
+//    
+//        var query = PFQuery(className:"load")
+//        query.getObjectInBackgroundWithId(id) {
+//            (load: PFObject?, error: NSError?) -> Void in
+//            if error != nil {
+//                println(error)
+//            } else if let load = load {
+//                load["bol"] = imageFile
+//                load.saveInBackground()
+//            }
+//        }
+
         var bolSign = BOLSignatureViewController()
         
         self.navigationController?.pushViewController(bolSign, animated: false)
@@ -103,8 +130,10 @@ class BillOfLadingViewController: FormViewController {
         bolSign.deliveryName = deliveryName
         bolSign.deliveryLat = deliveryLat
         bolSign.deliveryLng = deliveryLng
+        bolSign.id = id
         
     }
+    
     
     /// MARK: Private interface
     
@@ -118,6 +147,10 @@ class BillOfLadingViewController: FormViewController {
         let section1 = FormSectionDescriptor()
         
         var row: FormRowDescriptor! = FormRowDescriptor(tag: Static.pickupDate, rowType: .DateAndTime, title: "Pickup Date")
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = components.hour
+        let minutes = components.minute
+        row.value = date
         section1.addRow(row)
         
         row = FormRowDescriptor(tag: Static.shipperCompany, rowType: .Name, title: "Company")
@@ -248,13 +281,13 @@ class BillOfLadingViewController: FormViewController {
         
         row = FormRowDescriptor(tag: Static.check, rowType: .BooleanSwitch, title: "Certify this information")
         section4.addRow(row)
-        
+      
         section4.headerTitle = "Load Information"
-        
         
         form.sections = [section1, section2, section3, section4]
         
         self.form = form
+    
     }
     
 }

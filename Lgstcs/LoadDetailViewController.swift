@@ -30,6 +30,7 @@ class LoadDetailViewController: UIViewController {
     var shipperLat = ""
     var shipperLng = ""
     
+    var shipDate = NSDate()
     var shipperName = ""
     var shipperCompany = ""
     var shipperAddress = ""
@@ -38,6 +39,7 @@ class LoadDetailViewController: UIViewController {
     var shipperPhone = ""
     var shipperEmail = ""
     
+    var deliveryDate = NSDate()
     var deliveryName = ""
     var deliveryAddress = ""
     var deliveryCity = ""
@@ -169,6 +171,7 @@ class LoadDetailViewController: UIViewController {
         super.viewDidLoad()
         
         println(shipperAddressFull)
+        println(shipDate)
         
     }
 
@@ -206,6 +209,7 @@ class LoadDetailViewController: UIViewController {
         pickupVC.shipperPhone = shipperPhone
         pickupVC.shipperEmail = shipperEmail
         
+//        pickupVC.deliveryDate = deliveryDate
         pickupVC.deliveryName = deliveryName
         pickupVC.deliveryAddress = deliveryAddress
         pickupVC.deliveryCity = deliveryCity
@@ -218,6 +222,8 @@ class LoadDetailViewController: UIViewController {
         pickupVC.deliveryAddressFull = deliveryAddressFull
         pickupVC.deliveryLat = deliveryLat
         pickupVC.deliveryLng = deliveryLng
+        
+        pickupVC.id = id
     
     
     }

@@ -11,6 +11,7 @@ import Foundation
 class Load { 
     
     var ident: Int
+    var shipDate: NSDate
     var shipperName: String
     var shipperCompany: String
     var shipperAddress: String
@@ -20,6 +21,7 @@ class Load {
     var shipperEmail: String
     var shipperLat: String
     var shipperLng: String
+    var deliveryDate: NSDate
     var deliveryName: String
     var deliveryAddress: String
     var deliveryCity: String
@@ -31,9 +33,10 @@ class Load {
     var weight: String
     var id: String
     
-    init(aIdent:Int, aShipperName: String, aShipperCompany: String, aShipperAddress: String,  aShipperCity: String, aShipperState: String, aShipperPhone: String, aShipperEmail: String, aShipperLat: String, aShipperLng: String, aDeliveryName: String, aDeliveryAddress: String, aDeliveryCity: String, aDeliveryState: String, aDeliveryPhone: String, aDeliveryLat: String, aDeliveryLng: String, aTypeOfLoad: String, aWeight: String, aId: String){
+    init(aIdent:Int, aShipDate:NSDate, aShipperName: String, aShipperCompany: String, aShipperAddress: String,  aShipperCity: String, aShipperState: String, aShipperPhone: String, aShipperEmail: String, aShipperLat: String, aShipperLng: String, aDeliveryDate: NSDate, aDeliveryName: String, aDeliveryAddress: String, aDeliveryCity: String, aDeliveryState: String, aDeliveryPhone: String, aDeliveryLat: String, aDeliveryLng: String, aTypeOfLoad: String, aWeight: String, aId: String){
         
         ident = aIdent
+        shipDate = aShipDate
         shipperName = aShipperName
         shipperCompany = aShipperCompany
         shipperPhone = aShipperPhone
@@ -44,6 +47,7 @@ class Load {
         shipperEmail = aShipperEmail
         shipperLat = aShipperLat
         shipperLng = aShipperLng
+        deliveryDate = aDeliveryDate
         deliveryName = aDeliveryName
         deliveryAddress = aDeliveryAddress
         deliveryCity = aDeliveryCity

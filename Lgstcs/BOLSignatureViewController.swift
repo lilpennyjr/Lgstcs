@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class BOLSignatureViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class BOLSignatureViewController: UIViewController {
     var deliveryPhone = ""
     var deliveryLat = ""
     var deliveryLng = ""
+    var id = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,29 @@ class BOLSignatureViewController: UIViewController {
     }
     
     func route() {
-    
+        
+//        UIGraphicsBeginImageContext(view.frame.size)
+//        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+//        let viewImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        let data = UIImagePNGRepresentation(viewImage)
+//        let documents = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+//        let writePath = documents.stringByAppendingPathComponent("signature.png")
+//        data.writeToFile(writePath, atomically:true)
+//        
+//        let imageFile = PFFile(name:"signature.png", data:data)
+//        
+//        var query = PFQuery(className:"load")
+//        query.getObjectInBackgroundWithId(id) {
+//            (load: PFObject?, error: NSError?) -> Void in
+//            if error != nil {
+//                println(error)
+//            } else if let load = load {
+//                load["bolSignature"] = imageFile
+//                load.saveInBackground()
+//            }
+//        }
+        
     self.manager = CLLocationManager()
     self.manager!.startUpdatingLocation()
     println("Location Updated")
@@ -53,6 +77,7 @@ class BOLSignatureViewController: UIViewController {
     deliveryVC.deliveryName = deliveryName
     deliveryVC.deliveryLat = deliveryLat
     deliveryVC.deliveryLng = deliveryLng
+    deliveryVC.id = id
     
     }
 
